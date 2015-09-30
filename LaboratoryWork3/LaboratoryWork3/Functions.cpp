@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include <iostream>
-//#include <string>
-//#include <string.h>
+#include <math.h>
 #include "Classes.h"
 using namespace std;
 
@@ -9,7 +8,7 @@ using namespace std;
 
 void Tarif::SetFee(int fee)
 {
-	this->fee = fee;
+	this->fee = abs(fee);
 }
 
 void Tarif::GetFee()
@@ -19,7 +18,7 @@ void Tarif::GetFee()
 
 void Corp::SetAssociate(int associate)
 {
-	this->associate = associate;
+	this->associate = abs(associate);
 }
 
 void Corp::GetAssociate()
@@ -29,7 +28,7 @@ void Corp::GetAssociate()
 
 void Individual::SetFreeMins(int freemins)
 {
-	this->freemins = freemins;
+	this->freemins = abs(freemins);
 }
 
 void Individual::GetFreeMins()
@@ -39,7 +38,7 @@ void Individual::GetFreeMins()
 
 void Standart::SetFreeSms(int freesms)
 {
-	this->freesms = freesms;
+	this->freesms = abs(freesms);
 }
 
 void Standart::GetFreeSms()
@@ -49,7 +48,7 @@ void Standart::GetFreeSms()
 
 void BusinessPRO::SetMegabytes(int megabytes)
 {
-	this->megabytes = megabytes;
+	this->megabytes = abs(megabytes);
 }
 
 void BusinessPRO::GetMegabytes()

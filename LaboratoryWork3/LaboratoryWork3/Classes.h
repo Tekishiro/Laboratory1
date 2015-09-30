@@ -2,8 +2,6 @@
 
 #include "stdafx.h"
 #include <iostream>
-//#include <string>
-//#include <string.h>
 using namespace std;
 
 //Классы – Тариф, Корпоративный, Индивидульный, Стандарт, Бизнес Про и т.д.
