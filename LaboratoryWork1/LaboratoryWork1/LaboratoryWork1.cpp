@@ -18,8 +18,9 @@
 int main()
 {
 	setlocale(LC_ALL, "Rus");
+	system("chcp 1251");
 
-	int count = 2;
+	int count = 3;
 	unsigned int ID;
 	unsigned int NUMBER;
 	unsigned int SQUARE;
@@ -119,4 +120,3 @@ int main()
 	operator delete (H);
     return 0;
 }
-

@@ -20,7 +20,7 @@ int main()
 	cin >> fee1;
 	Tarif a;
 	a.SetFee(fee1);
-	a.GetFee();
+	a.ShowFee();
 	cout << "-----------------------------------" << endl;
 
 	cout << "¬ведите абонентскую плату тарифа:" << endl;
@@ -30,8 +30,8 @@ int main()
 	Corp b;
 	b.SetFee(fee1);
 	b.SetAssociate(associate1);
-	b.GetFee();
-	b.GetAssociate();
+	b.ShowFee();
+	b.ShowAssociate();
 	cout << "-----------------------------------" << endl;
 
 	cout << "¬ведите абонентскую плату тарифа:" << endl;
@@ -41,8 +41,8 @@ int main()
 	Individual c;
 	c.SetFee(fee1);
 	c.SetFreeMins(freemins1);
-	c.GetFee();
-	c.GetFreeMins();
+	c.ShowFee();
+	c.ShowFreeMins();
 	cout << "-----------------------------------" << endl;
 
 	cout << "¬ведите абонентскую плату тарифа:" << endl;
@@ -52,8 +52,8 @@ int main()
 	Standart d;
 	d.SetFee(fee1);
 	d.SetFreeSms(freesms1);
-	d.GetFee();
-	d.GetFreeSms();
+	d.ShowFee();
+	d.ShowFreeSms();
 	cout << "-----------------------------------" << endl;
 
 	cout << "¬ведите абонентскую плату тарифа:" << endl;
@@ -63,8 +63,17 @@ int main()
 	BusinessPRO e;
 	e.SetFee(fee1);
 	e.SetMegabytes(megabytes1);
-	e.GetFee();
-	e.GetMegabytes();
+	e.ShowFee();
+	e.ShowMegabytes();
+	cout << "-----------------------------------" << endl;
+
+	cout << "¬ведите абонентскую плату тарифа:" << endl;
+	cin >> fee1;
+	cout << "¬ведите количество коллег дл€ тарифа:" << endl;
+	cin >> associate1;
+	Corp f = Corp(fee1, associate1);
+	f.ShowFee();
+	f.ShowAssociate();
 	cout << "-----------------------------------" << endl;
 
     return 0;

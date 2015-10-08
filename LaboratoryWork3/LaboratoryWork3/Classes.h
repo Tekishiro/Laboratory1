@@ -13,10 +13,11 @@ private:
 
 public:
 	Tarif() { cout << "Тариф создан!" << endl; }
+	Tarif(int fee) { this->fee = fee; cout << "Тариф создан!" << endl; }
 	~Tarif() { cout << "Тариф удален!" << endl; }
 
 	void SetFee(int);
-	void GetFee();
+	void ShowFee();
 };
 
 
@@ -27,10 +28,12 @@ private:
 
 public:
 	Corp() { cout << "Корпоративный тариф создан!" << endl; }
+	Corp(int fee, int associate) : Tarif(fee) { this->associate = associate;
+												cout << "Корпоративный тариф(2) создан!" << endl;}
 	~Corp() { cout << "Корпоративный тариф удален!" << endl; }
 
 	void SetAssociate(int);
-	void GetAssociate();
+	void ShowAssociate();
 };
 
 class Individual : public Tarif //индивидуальный тариф - бесплатные минуты
@@ -43,7 +46,7 @@ public:
 	~Individual() { cout << "Индивидуальный тариф удален!" << endl; }
 
 	void SetFreeMins(int);
-	void GetFreeMins();
+	void ShowFreeMins();
 };
 
 class Standart : public Tarif
@@ -56,7 +59,7 @@ public:
 	~Standart() { cout << "Стандартный тариф удален!" << endl; }
 
 	void SetFreeSms(int);
-	void GetFreeSms();
+	void ShowFreeSms();
 };
 
 class BusinessPRO : public Tarif //бесплатные мегабайты интернета
@@ -69,5 +72,5 @@ public:
 	~BusinessPRO() { cout << "Тариф БизнесПРО удален!" << endl; }
 
 	void SetMegabytes(int);
-	void GetMegabytes();
+	void ShowMegabytes();
 };
