@@ -10,15 +10,20 @@ class Tarif //тариф имеет абонентскую плату
 {
 protected:
 	int fee;
-	static Tarif *head;
+	Tarif *next;
 
 public:
 	Tarif() { cout << "Тариф создан!" << endl; }
 	Tarif(int fee) { this->fee = fee; cout << "Тариф создан!" << endl; }
-	~Tarif() { cout << "Тариф удален!" << endl; }
+	virtual ~Tarif() { cout << "Тариф удален!" << endl; }
 
-	void SetFee(int);
-	void ShowFee();
+	virtual void SetFee(int);
+	virtual void ShowFee();
+	virtual void Show() = 0;
+
+
+	friend class List;
+
 };
 
 
@@ -29,12 +34,15 @@ private:
 
 public:
 	Corp() { cout << "Корпоративный тариф создан!" << endl; }
-	Corp(int fee, int associate) : Tarif(fee) { this->associate = associate;
-												cout << "Корпоративный тариф(2) создан!" << endl;}
+	Corp(int fee, int associate) : Tarif(fee) {
+		this->associate = associate;
+		cout << "Корпоративный тариф создан!" << endl;
+	}
 	~Corp() { cout << "Корпоративный тариф удален!" << endl; }
 
 	void SetAssociate(int);
 	void ShowAssociate();
+	void Show();
 };
 
 class Individual : public Tarif //индивидуальный тариф - бесплатные минуты
@@ -44,10 +52,13 @@ private:
 
 public:
 	Individual() { cout << "Индивидуальный тариф создан!" << endl; }
+	Individual(int fee, int freemins) : Tarif(fee) { this->freemins = freemins;
+													 cout << "Индивидуальный тариф создан!" << endl; }
 	~Individual() { cout << "Индивидуальный тариф удален!" << endl; }
 
 	void SetFreeMins(int);
 	void ShowFreeMins();
+	void Show();
 };
 
 class Standart : public Tarif
@@ -57,10 +68,13 @@ private:
 
 public:
 	Standart() { cout << "Стандартный тариф создан!" << endl; }
+	Standart(int fee, int freesms) :Tarif(fee) { this->freesms = freesms; 
+												 cout << "Стандартный тариф создан!" << endl; }
 	~Standart() { cout << "Стандартный тариф удален!" << endl; }
 
 	void SetFreeSms(int);
 	void ShowFreeSms();
+	void Show();
 };
 
 class BusinessPRO : public Tarif //бесплатные мегабайты интернета
@@ -70,8 +84,11 @@ private:
 
 public:
 	BusinessPRO() { cout << "Тариф БизнесПРО создан!" << endl; }
+	BusinessPRO(int fee, int megabytes) :Tarif(fee) { this->megabytes = megabytes;
+													  cout << "Тариф БизнесПРО создан!" << endl; }
 	~BusinessPRO() { cout << "Тариф БизнесПРО удален!" << endl; }
 
 	void SetMegabytes(int);
 	void ShowMegabytes();
+	void Show();
 };
